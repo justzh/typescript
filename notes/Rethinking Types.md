@@ -62,3 +62,4 @@ There exists the *empty type*:
 	// No error, but this isn't an 'Empty' ?
 	fn({ k: 10 });
 
+TypeScript determines if the call to `fn` here is valid by seeing if the provided argument is a valid `Empty`.
