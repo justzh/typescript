@@ -4,7 +4,7 @@
 
 ## Types as Sets
 
-It's easy to think of a one-to-one correspondence between runtime types and their compile-time declarations.
+It's easy to think of a one-to-one correspondence between runtime types and their compile-time declrations.
 
 In TypeScript, every type is just a set.
 
@@ -62,4 +62,24 @@ There exists the *empty type*:
 	// No error, but this isn't an 'Empty' ?
 	fn({ k: 10 });
 
-TypeScript determines if the call to `fn` here is valid by seeing if the provided argument is a valid `Empty`.
+TypeScript determines if the call to `fn` here is valid by seeing if the provided argument is a valid `Empty`. It can do this by examining the *structure* of `{ k: 10 }` and `c;ass Empty { }`. We see that `{ k: 10 }` has *all* of the properties that `Empty` does, because `Empty` has no properties. Therefore, this is a valid call!
+
+**Identical Types**
+
+Consider the following:
+
+	class Car {
+		drive() {
+			// press down the gas pedal
+		}
+	}
+	class Golfer {
+		drive() {
+			// hit the ball far
+		}
+	}
+
+	// No error?
+	let w: Card = new Golfer();
+
+This is not an error because the *strctures* of these classes are the same.
